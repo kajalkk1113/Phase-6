@@ -73,4 +73,5 @@ During this phase, I practiced:
 Clone the repository:
 
 ```bash
-git clone https://github.com/kajalkk1113/phase-6.git# phase-6
+ https://github.com/kajalkk1113/phase-6.git
+
