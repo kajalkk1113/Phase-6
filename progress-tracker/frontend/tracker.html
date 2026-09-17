@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Student Progress</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top">
+
+        <div>
+            <h1>📊 Student Progress</h1>
+
+            <p>
+                All students and their course progress
+            </p>
+        </div>
+
+
+        <a href="index.html" class="back-btn">
+            ← Add Student
+        </a>
+
+    </div>
+
+
+    <div id="trackerContainer">
+
+        <p class="loading">
+            Loading students...
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+    async function getTrackers() {
+
+try {
+
+    const response = await fetch(
+        "http://localhost:3000/tracker-sheet"
+    );
+
+
+    const data = await response.json();
+
+
+    const container =
+        document.getElementById("trackerContainer");
+
+
+    container.innerHTML = "";
+
+
+    if (
+        !data.success ||
+        data.trackers.length === 0
+    ) {
+
+        container.innerHTML = `
+            <div class="empty">
+
+                <h2>📭 No Students Found</h2>
+
+                <p>
+                    No student progress has been added yet.
+                </p>
+
+                <a href="index.html">
+                    Add Student
+                </a>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    data.trackers.forEach((tracker) => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "tracker-card";
+
+
+        card.innerHTML = `
+
+            <div class="student-icon">
+                👨‍🎓
+            </div>
+
+
+            <h2>
+                ${tracker.name}
+            </h2>
+
+
+            <p class="course">
+
+                <strong>Course:</strong>
+
+                ${tracker.course}
+
+            </p>
+
+
+            <div class="percentage">
+
+                <span>
+                    Completion
+                </span>
+
+                <strong>
+                    ${tracker.complete}%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    style="width: ${tracker.complete}%"
+                ></div>
+
+            </div>
+
+
+            <small>
+
+                🕒 Last Updated:
+
+                ${
+                    new Date(
+                        tracker.lastUpdate
+                    ).toLocaleString()
+                }
+
+            </small>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+
+} catch (error) {
+
+    console.log(error);
+
+
+    document.getElementById(
+        "trackerContainer"
+    ).innerHTML = `
+
+        <div class="error">
+
+            ❌ Unable to fetch student data.
+
+        </div>
+
+    `;
+
+}
+
+}
+
+// Run when page opens
+
+getTrackers();
+</script>
+
+</body>
+
+</html>

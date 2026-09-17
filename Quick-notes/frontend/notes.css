@@ -1,0 +1,339 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+
+font-family: Arial, Helvetica, sans-serif;
+
+min-height: 100vh;
+
+padding: 50px 20px;
+
+background:
+    linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+color: #222;
+
+}
+
+/* Main container */
+
+.notes-container {
+
+max-width: 1000px;
+
+margin: auto;
+
+}
+
+/* Header */
+
+.header {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin-bottom: 35px;
+
+color: white;
+
+}
+
+.header h1 {
+
+font-size: 38px;
+
+margin-bottom: 8px;
+
+}
+
+.header p {
+
+font-size: 16px;
+
+opacity: 0.85;
+
+}
+
+/* Back button */
+
+.back-btn {
+
+text-decoration: none;
+
+color: #5b4bc4;
+
+background: white;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+font-weight: bold;
+
+transition: 0.3s;
+
+}
+
+.back-btn {
+
+transform: translateY(-3px);
+
+box-shadow:
+    0 8px 20px rgba(0,0,0,0.2);
+
+}
+
+/* Notes grid */
+
+.notes-list {
+
+display: grid;
+
+grid-template-columns:
+    repeat(2, 1fr);
+
+gap: 22px;
+
+}
+
+/* Note card */
+
+.note-card {
+
+background: rgba(255,255,255,0.96);
+
+padding: 25px;
+
+border-radius: 18px;
+
+min-height: 210px;
+
+box-shadow:
+    0 10px 30px rgba(0,0,0,0.15);
+
+border-left:
+    6px solid #667eea;
+
+transition: 0.3s;
+
+animation:
+    cardAppear 0.5s ease;
+
+}
+
+.note-card {
+
+transform:
+    translateY(-7px);
+
+box-shadow:
+    0 18px 35px rgba(0,0,0,0.22);
+
+}
+
+/* Note icon */
+
+.note-icon {
+
+font-size: 30px;
+
+margin-bottom: 12px;
+
+}
+
+/* Note title */
+
+.note-card h2 {
+
+color: #4f46a5;
+
+font-size: 22px;
+
+margin-bottom: 12px;
+
+word-break: break-word;
+
+}
+
+/* Note content */
+
+.note-card p {
+
+color: #555;
+
+line-height: 1.6;
+
+font-size: 15px;
+
+margin-bottom: 20px;
+
+white-space: pre-wrap;
+
+word-break: break-word;
+
+}
+
+/* Date */
+
+.note-date {
+
+border-top:
+    1px solid #eee;
+
+padding-top: 12px;
+
+color: #999;
+
+font-size: 12px;
+
+}
+
+/* Loading */
+
+.loading {
+
+color: white;
+
+text-align: center;
+
+font-size: 18px;
+
+grid-column: 1 / -1;
+
+}
+
+/* Empty */
+
+.empty {
+
+background: white;
+
+padding: 50px;
+
+border-radius: 20px;
+
+text-align: center;
+
+grid-column: 1 / -1;
+
+box-shadow:
+    0 10px 30px rgba(0,0,0,0.15);
+
+}
+
+.empty h2 {
+
+margin-bottom: 10px;
+
+}
+
+.empty p {
+
+color: #666;
+
+margin-bottom: 20px;
+
+}
+
+.empty a {
+
+display: inline-block;
+
+text-decoration: none;
+
+background: #667eea;
+
+color: white;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+}
+
+/* Error */
+
+.error {
+
+background: white;
+
+padding: 30px;
+
+border-radius: 15px;
+
+text-align: center;
+
+grid-column: 1 / -1;
+
+color: #d33;
+
+}
+
+/* Animation */
+
+@keyframes cardAppear {
+
+from {
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+}
+
+to {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+body {
+
+    padding:
+        30px 15px;
+}
+
+.header {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.header h1 {
+
+    font-size: 30px;
+}
+
+.notes-list {
+
+    grid-template-columns: 1fr;
+}
+
+.back-btn {
+
+    display: inline-block;
+}
+
+}

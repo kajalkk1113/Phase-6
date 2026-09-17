@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback list</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Student Feedback</h1>
+
+        <a href="index.html" class="back-btn">Back to Feedback from</a>
+
+        <div id="feedbackList">
+            <p>Loading feedback</p>
+        </div>
+    </div>
+
+    <script>
+        const feedbackList = document.getElementById("feedbackList");
+
+        async function getFeedback() {
+            try {
+                const response = await fetch("http://localhost:3000/feedback-detail")
+
+                const data = await response.json()
+
+                if(!data.success){
+                    feedbackList.innerHTML="<p>Unable to fetch data</p>"
+                    return;
+                }
+
+                if(data.feedbacks.length===0){
+                     feedbackList.innerHTML="<p>No Feedback available yet</p>"
+                    return;
+                }
+
+                feedbackList.innerHTML="";
+
+                data.feedbacks.forEach((feedback)=>{
+                    const card = document.createElement("div")
+                    card.className ="feedback-card"
+                    card.innerHTML = ` <h2>${feedback.name}</h2> 
+                    <p class="rating"> ${getStars(feedback.rating)} <span>${feedback.rating}</span> </p> 
+                    <p class="comment"> ${feedback.comment} </p> 
+                    <p class="date"> ${new Date(feedback.createdAt).toLocaleString()} </p> `;
+                    feedbackList.appendChild(card);
+                })
+            } catch (error) {
+                console.log(error);
+                feedbackList.innerHTML="server is not connecting"
+            }
+            
+        }
+        getFeedback()
+
+        function getStars(rating){
+          const starts={ 
+             "Poor": "⭐", 
+             "Average": "⭐⭐", 
+             "Good": "⭐⭐⭐",
+              "Very Good": "⭐⭐⭐⭐", 
+              "Excellent": "⭐⭐⭐⭐⭐"
+            }
+            return starts[rating] ||""
+        }
+    </script>
+</body>
+</html

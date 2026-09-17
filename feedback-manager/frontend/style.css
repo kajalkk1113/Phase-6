@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+
+body {
+font-family: 'Inter', sans-serif;
+min-height: 100vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+padding: 30px;
+
+background:
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.35), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.35), transparent 30%),
+    linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+
+color: #fff;
+
+
+}
+
+
+
+/* Background decorative circles */
+
+
+
+body::before,
+body::after {
+content: "";
+position: fixed;
+
+width: 250px;
+height: 250px;
+
+border-radius: 50%;
+
+filter: blur(70px);
+
+z-index: -1;
+
+
+}
+
+
+
+body::before {
+background: rgba(59, 130, 246, 0.4);
+
+top: -80px;
+left: -80px;
+
+
+}
+
+
+
+body::after {
+background: rgba(236, 72, 153, 0.35);
+
+right: -80px;
+bottom: -80px;
+
+
+}
+
+
+
+/* Main Card */
+
+
+
+.container {
+width: 100%;
+max-width: 550px;
+
+padding: 42px;
+
+background: rgba(255, 255, 255, 0.09);
+
+border: 1px solid rgba(255, 255, 255, 0.18);
+
+border-radius: 28px;
+
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+
+box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+animation: cardAppear 0.7s ease;
+
+
+}
+
+
+
+@keyframes cardAppear {
+
+from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+}
+
+
+
+/* Heading */
+
+
+
+h1 {
+text-align: center;
+
+font-size: 32px;
+font-weight: 800;
+
+margin-bottom: 10px;
+
+background: linear-gradient(
+    90deg,
+    #ffffff,
+    #c7d2fe,
+    #fbcfe8
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+
+}
+
+
+
+.container::before {
+content: "💬 Share your experience";
+
+display: block;
+
+text-align: center;
+
+font-size: 13px;
+font-weight: 500;
+
+color: #cbd5e1;
+
+margin-bottom: 30px;
+
+
+}
+
+
+
+/* Form */
+
+
+
+form {
+display: flex;
+flex-direction: column;
+gap: 9px;
+}
+
+
+
+/* Labels */
+
+
+
+label {
+margin-top: 8px;
+
+font-size: 14px;
+font-weight: 600;
+
+color: #e2e8f0;
+
+
+}
+
+
+
+/* Inputs */
+
+
+
+input,
+select,
+textarea {
+
+width: 100%;
+
+padding: 15px 17px;
+
+margin-bottom: 8px;
+
+border: 1px solid rgba(255, 255, 255, 0.15);
+
+border-radius: 13px;
+
+outline: none;
+
+background: rgba(255, 255, 255, 0.08);
+
+color: white;
+
+font-family: inherit;
+font-size: 14px;
+
+transition: 0.3s ease;
+
+
+}
+
+
+
+/* Input placeholder */
+
+
+
+input::placeholder,
+textarea::placeholder {
+color: #94a3b8;
+}
+
+
+
+/* Input focus */
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+border-color: #a5b4fc;
+
+background: rgba(255, 255, 255, 0.12);
+
+box-shadow:
+    0 0 0 4px rgba(129, 140, 248, 0.12),
+    0 8px 25px rgba(0, 0, 0, 0.12);
+
+transform: translateY(-1px);
+
+
+}
+
+
+
+/* Select */
+
+
+
+select {
+cursor: pointer;
+}
+
+
+
+/* Select options */
+
+
+
+select option {
+background: #1e1b4b;
+color: white;
+}
+
+
+
+/* Textarea */
+
+
+
+textarea {
+
+min-height: 130px;
+
+resize: vertical;
+
+line-height: 1.6;
+
+
+}
+
+
+
+/* Submit Button */
+
+
+
+button {
+
+position: relative;
+
+overflow: hidden;
+
+border: none;
+
+margin-top: 12px;
+
+padding: 15px;
+
+border-radius: 14px;
+
+background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6,
+    #ec4899
+);
+
+color: white;
+
+font-family: inherit;
+
+font-size: 15px;
+font-weight: 700;
+
+cursor: pointer;
+
+box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.35);
+
+transition: 0.3s ease;
+
+
+}
+
+
+
+button:hover {
+
+transform: translateY(-3px);
+
+box-shadow:
+    0 15px 35px rgba(139, 92, 246, 0.45);
+
+
+}
+
+
+
+button:active {
+transform: translateY(0);
+}
+
+
+
+/* Button shine effect */
+
+
+
+button::before {
+
+content: "";
+
+position: absolute;
+
+top: 0;
+left: -100%;
+
+width: 60%;
+height: 100%;
+
+background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+);
+
+transform: skewX(-20deg);
+
+transition: 0.6s;
+
+
+}
+
+
+
+button:hover::before {
+left: 130%;
+}
+
+
+
+/* Result message */
+
+
+
+#result {
+
+text-align: center;
+
+margin-top: 18px;
+
+min-height: 20px;
+
+color: #bbf7d0;
+
+font-size: 14px;
+
+font-weight: 600;
+
+
+}
+
+
+
+/* View Feedback Button */
+
+
+
+.view-btn {
+
+display: block;
+
+width: 100%;
+
+text-align: center;
+
+margin-top: 18px;
+
+padding: 13px;
+
+border-radius: 13px;
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+background: rgba(255, 255, 255, 0.07);
+
+color: #e0e7ff;
+
+text-decoration: none;
+
+font-size: 14px;
+
+font-weight: 600;
+
+transition: 0.3s ease;
+
+
+}
+
+
+
+.view-btn:hover {
+
+background: rgba(255, 255, 255, 0.14);
+
+border-color: rgba(255, 255, 255, 0.35);
+
+transform: translateY(-2px);
+
+
+}
+
+
+
+/* Mobile */
+
+
+
+@media (max-width: 600px) {
+
+body {
+    padding: 18px;
+}
+
+.container {
+    padding: 28px 22px;
+    border-radius: 22px;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+input,
+select,
+textarea {
+    padding: 14px;
+}
+
+
+}

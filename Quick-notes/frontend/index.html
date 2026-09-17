@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quick Notes</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <form id="form">
+
+        <h1>📝 Quick Notes</h1>
+
+        <p class="subtitle">
+            Save your thoughts and ideas
+        </p>
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Write your note title"
+            required
+        >
+
+        <textarea
+            id="content"
+            placeholder="Write your content here..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Add Note
+        </button>
+
+        <p id="message"></p>
+
+    </form>
+
+    <a href="notes.html" class="all-notes">
+        📚 See All Notes
+    </a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

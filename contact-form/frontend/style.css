@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 10% 20%, rgba(120, 80, 255, 0.35), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(0, 200, 255, 0.3), transparent 30%),
+        linear-gradient(135deg, #0f172a, #1e1b4b, #111827);
+
+    color: white;
+}
+
+
+/* Main Container */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(139, 92, 246, 0.25);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    top: 5%;
+    left: 10%;
+
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    background: rgba(6, 182, 212, 0.2);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    bottom: 5%;
+    right: 10%;
+
+    animation: float 7s ease-in-out infinite reverse;
+}
+
+
+/* Contact Card */
+
+form {
+    position: relative;
+    z-index: 2;
+
+    width: 450px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+
+/* Heading */
+
+h1 {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    background: linear-gradient(
+        90deg,
+        #a78bfa,
+        #22d3ee
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Labels */
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #e5e7eb;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* Inputs */
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Focus */
+
+input:focus,
+textarea:focus {
+    border-color: #a78bfa;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(167, 139, 250, 0.15),
+        0 0 20px rgba(167, 139, 250, 0.15);
+
+    transform: translateY(-2px);
+}
+
+
+textarea {
+    min-height: 130px;
+
+    resize: none;
+}
+
+
+/* Button */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #06b6d4
+    );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(124, 58, 237, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(124, 58, 237, 0.45);
+
+    filter: brightness(1.1);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* Result Message */
+
+#result {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #67e8f9;
+
+    min-height: 20px;
+}
+
+
+/* Animation */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+
+        padding: 28px 22px;
+
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+}

@@ -1,0 +1,557 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: "Segoe UI", Arial, sans-serif;
+min-height: 100vh;
+color: #1e293b;
+
+background:
+    radial-gradient(circle at 10% 20%, #8b5cf6 0%, transparent 25%),
+    radial-gradient(circle at 90% 10%, #06b6d4 0%, transparent 25%),
+    radial-gradient(circle at 80% 90%, #ec4899 0%, transparent 25%),
+    linear-gradient(135deg, #0f172a, #1e1b4b 50%, #312e81);
+
+}
+
+/* Main Container */
+
+.container {
+width: 90%;
+max-width: 750px;
+margin: 60px auto;
+}
+
+/* ========================= /
+/ FORM PAGE /
+/ ========================= */
+
+.form-card {
+position: relative;
+overflow: hidden;
+
+background: rgba(255, 255, 255, 0.12);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 25px;
+
+padding: 40px;
+
+box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.2);
+
+}
+
+/* Decorative Glow */
+
+.form-card::before {
+content: "";
+position: absolute;
+width: 180px;
+height: 180px;
+background: #8b5cf6;
+border-radius: 50%;
+filter: blur(80px);
+top: -80px;
+right: -60px;
+opacity: 0.5;
+}
+
+.form-card h1 {
+position: relative;
+color: white;
+text-align: center;
+font-size: 32px;
+margin-bottom: 8px;
+}
+
+.subtitle {
+position: relative;
+text-align: center;
+color: #cbd5e1;
+margin-bottom: 30px;
+}
+
+/* Form */
+
+form {
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+label {
+color: #e2e8f0;
+font-size: 14px;
+font-weight: 600;
+margin-top: 8px;
+}
+
+input {
+width: 100%;
+padding: 14px 16px;
+
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.25);
+
+border-radius: 12px;
+
+color: white;
+font-size: 15px;
+
+outline: none;
+transition: 0.3s;
+
+}
+
+input::placeholder {
+color: #94a3b8;
+}
+
+input {
+border-color: #a78bfa;
+background: rgba(255, 255, 255, 0.16);
+
+box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.2),
+    0 0 20px rgba(139, 92, 246, 0.2);
+
+}
+
+/* Submit Button */
+
+button {
+margin-top: 18px;
+
+padding: 14px;
+
+border: none;
+border-radius: 12px;
+
+background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #ec4899
+);
+
+color: white;
+font-size: 16px;
+font-weight: 700;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+box-shadow:
+    0 8px 20px rgba(139, 92, 246, 0.35);
+
+}
+
+button {
+transform: translateY(-3px);
+
+box-shadow:
+    0 12px 30px rgba(236, 72, 153, 0.4);
+
+}
+
+button {
+transform: scale(0.98);
+}
+
+/* Result */
+
+#result {
+min-height: 22px;
+margin: 18px 0;
+
+text-align: center;
+
+color: #86efac;
+font-weight: 600;
+
+}
+
+/* View Students Button */
+
+.view-btn {
+display: block;
+
+padding: 13px;
+
+text-align: center;
+text-decoration: none;
+
+color: white;
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+border-radius: 12px;
+
+background: rgba(255, 255, 255, 0.1);
+
+transition: 0.3s;
+
+}
+
+.view-btn {
+background: rgba(255, 255, 255, 0.2);
+transform: translateY(-2px);
+}
+
+/* ========================= /
+/ TRACKER PAGE /
+/ ========================= */
+
+.top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+gap: 20px;
+margin-bottom: 30px;
+
+}
+
+.top h1 {
+color: white;
+font-size: 30px;
+margin-bottom: 5px;
+}
+
+.top p {
+color: #cbd5e1;
+}
+
+/* Back Button */
+
+.back-btn {
+padding: 11px 18px;
+
+color: white;
+text-decoration: none;
+
+border-radius: 10px;
+
+background: linear-gradient(
+    135deg,
+    #06b6d4,
+    #3b82f6
+);
+
+font-weight: 600;
+
+transition: 0.3s;
+
+white-space: nowrap;
+
+}
+
+.back-btn {
+transform: translateY(-3px);
+
+box-shadow:
+    0 8px 20px rgba(6, 182, 212, 0.35);
+
+}
+
+/* Tracker Container */
+
+#trackerContainer {
+display: grid;
+
+grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+);
+
+gap: 20px;
+
+}
+
+/* Student Card */
+
+.tracker-card {
+position: relative;
+
+overflow: hidden;
+
+padding: 25px;
+
+background: rgba(255, 255, 255, 0.12);
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+border-radius: 20px;
+
+color: white;
+
+box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+
+transition: 0.35s;
+
+}
+
+.tracker-card {
+transform: translateY(-8px) scale(1.01);
+
+box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+
+}
+
+/* Card Glow */
+
+.tracker-card::after {
+content: "";
+
+position: absolute;
+
+width: 120px;
+height: 120px;
+
+background: #06b6d4;
+
+border-radius: 50%;
+
+filter: blur(60px);
+
+right: -50px;
+bottom: -50px;
+
+opacity: 0.3;
+
+}
+
+/* Student Icon */
+
+.student-icon {
+width: 55px;
+height: 55px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 15px;
+
+background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #ec4899
+);
+
+font-size: 28px;
+
+margin-bottom: 15px;
+
+box-shadow:
+    0 8px 20px rgba(139, 92, 246, 0.3);
+
+}
+
+.tracker-card h2 {
+font-size: 21px;
+margin-bottom: 8px;
+}
+
+.course {
+color: #cbd5e1;
+margin-bottom: 20px;
+}
+
+/* Percentage */
+
+.percentage {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-bottom: 8px;
+
+}
+
+.percentage span {
+color: #cbd5e1;
+}
+
+.percentage strong {
+font-size: 20px;
+
+color: #67e8f9;
+
+}
+
+/* Progress Bar */
+
+.progress-bar {
+width: 100%;
+height: 12px;
+
+overflow: hidden;
+
+background: rgba(255, 255, 255, 0.15);
+
+border-radius: 20px;
+
+margin-bottom: 12px;
+
+}
+
+.progress {
+height: 100%;
+
+border-radius: 20px;
+
+background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #8b5cf6,
+    #ec4899
+);
+
+box-shadow:
+    0 0 12px rgba(139, 92, 246, 0.7);
+
+transition: width 1s ease;
+
+}
+
+/* Last Updated */
+
+.tracker-card small {
+color: #94a3b8;
+font-size: 12px;
+}
+
+/* Loading */
+
+.loading {
+text-align: center;
+
+color: #cbd5e1;
+
+padding: 40px;
+
+}
+
+/* Empty */
+
+.empty {
+grid-column: 1 / -1;
+
+text-align: center;
+
+padding: 50px 20px;
+
+background: rgba(255, 255, 255, 0.1);
+
+backdrop-filter: blur(15px);
+
+border-radius: 20px;
+
+color: white;
+
+}
+
+.empty h2 {
+margin-bottom: 10px;
+}
+
+.empty p {
+color: #cbd5e1;
+margin-bottom: 20px;
+}
+
+.empty a {
+display: inline-block;
+
+padding: 11px 20px;
+
+background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #ec4899
+);
+
+color: white;
+
+text-decoration: none;
+
+border-radius: 10px;
+
+font-weight: 600;
+
+}
+
+/* Error */
+
+.error {
+grid-column: 1 / -1;
+
+padding: 25px;
+
+text-align: center;
+
+color: #fecaca;
+
+background: rgba(239, 68, 68, 0.12);
+
+border: 1px solid rgba(239, 68, 68, 0.25);
+
+border-radius: 15px;
+
+}
+
+/* ========================= /
+/ RESPONSIVE /
+/ ========================= */
+
+@media (max-width: 600px) {
+
+.container {
+    width: 92%;
+    margin: 30px auto;
+}
+
+.form-card {
+    padding: 25px 20px;
+}
+
+.form-card h1 {
+    font-size: 26px;
+}
+
+.top {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.top h1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.top p {
+    text-align: center;
+}
+
+.back-btn {
+    text-align: center;
+}
+
+#trackerContainer {
+    grid-template-columns: 1fr;
+}
+
+}
