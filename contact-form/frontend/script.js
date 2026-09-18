@@ -8,7 +8,7 @@ form.addEventListener("submit",async (e) => {
     const message = document.getElementById("message").value;
 
     try {
-        const response = await fetch("/api/submit-contact",{
+        const response = await fetch("http://localhost:3000/submit-contact",{
             method:"POST",
 
             headers:{
