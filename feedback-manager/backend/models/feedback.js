@@ -14,7 +14,7 @@ const feedbackSchema = new mongoose.Schema({
             "Very Good",
             "Excellent"
         ],
-        requires:true
+        required:true
     },
 
     comment:{
