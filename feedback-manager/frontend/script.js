@@ -9,7 +9,7 @@ form.addEventListener("submit",async(e)=>{
     const comment = document.getElementById("Comment").value.trim()
 
     try {
-        const response = await fetch("http://localhost:3000/form",{
+        const response = await fetch("https://feedback-form-ma6u.onrender.com/submit-contact",{
             method:"POST",
 
             headers:{
