@@ -10,13 +10,13 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
-    console.log("MONGODB connect");
+    console.log("MONGODB connect")
 })
 .catch((error)=>{
-    console.log(error);
-})
+    console.log(error)
+});
 
 app.post("/form",async(req,res)=>{
     const {name,rating,comment}=req.body;

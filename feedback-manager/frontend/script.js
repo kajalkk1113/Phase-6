@@ -6,7 +6,7 @@ form.addEventListener("submit",async(e)=>{
 
     const name = document.getElementById("name").value.trim()
     const rating= document.getElementById("rating").value
-    const comment = document.getElementById("").value.trim()
+    const comment = document.getElementById("comment").value.trim()
 
     try {
         const response = await fetch("http://localhost:3000/form",{
